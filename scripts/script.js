@@ -22,7 +22,7 @@ saveBtn.addEventListener("click", function(e) {
 });
 
 // Code to actually download the canvas
-function downloadImage(data, filename = 'untitled.png') {
+function downloadImage(data, filename) {
   var a = document.createElement('a');
   a.href = data;
   a.download = filename;
@@ -31,9 +31,35 @@ function downloadImage(data, filename = 'untitled.png') {
 }
 //--------------------------------------------END OF CANVAS TO PNG SAVING SECTION---------------------------------
 
+//--------------------------------------------START OF BACKGROUND DRAW ON CANVAS SECTION---------------------------------
+
+    const buttons = document.getElementsByTagName("button");
+
+    const ButtonPressed = e => { 
+      console.log(e.target.id);
+      imgBackground.src=`./assets/${e.target.id}.png`;
+      imgBackground.onload = function() {
+        ProcessBackground();
+      };
+      console.log("Button is pressed");
+
+    }
+
+    for (let btn of buttons) {
+      btn.addEventListener("click", ButtonPressed);
+  }
+
+    function ProcessBackground(){
+      DrawBackground();
+    }
+    function DrawBackground() {
+      ctx.drawImage(imgBackground,currentX-(imgBackground.width/2),currentY-(imgBackground.height/2));
+    };
+//--------------------------------------------END OF BACKGROUND DRAW ON CANVAS SECTION---------------------------------
 //--------------------------------------------START OF DRAG ACROSS CANVAS SECTION---------------------------------
   var canvas, ctx;
   var img = new Image();
+  var imgBackground = new Image();
   var isDraggable = false;
   
   var currentX = 0;
@@ -52,9 +78,10 @@ function downloadImage(data, filename = 'untitled.png') {
       console.log(e.target.id);
       img.src=`./assets/${e.target.id}.png`;
       img.onload = function() {
-        ProcessImg();
+        ProcessBuddy();
       };
       console.log("Image is pressed");
+      console.log()
     }
 
     for (let image of images) {
@@ -62,7 +89,7 @@ function downloadImage(data, filename = 'untitled.png') {
   }
     
   
-  function ProcessImg() {
+  function ProcessBuddy() {
     MouseEvents();
   
     setInterval(function() {
@@ -105,6 +132,7 @@ function downloadImage(data, filename = 'untitled.png') {
   function DrawImg() {
     ctx.drawImage(img, currentX-(img.width/2), currentY-(img.height/2));
 };
+  
 //--------------------------------------------END OF DRAG ON CANVAS SECTION---------------------------------
 
 };

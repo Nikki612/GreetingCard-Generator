@@ -1,6 +1,11 @@
-.canvas{
+#canvas{
     display: flex;
     justify-content: flex-end;
+    background-color: transparent;
+}
+
+#canvas-bg{
+    position:absolute;
 }
 
 .left-side{
@@ -39,6 +44,12 @@
 
 #btn-save{
     display: flex;
+}
+
+#title{
+    text-align:center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: lighter;
 }
 
 

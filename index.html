@@ -11,6 +11,7 @@
         <title>Greeting Card Generator</title>
     </head>
     <body>
+        <h1 id="title">Greeting Card Generator</h1>
         <div class="container" id="webpage">
           <div class="left-side">
             <ul class="nav nav-pills" id="listElements" role="tablist">
@@ -24,7 +25,7 @@
                 <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#to-from" type="button" role="tab" aria-controls="to-from" aria-selected="false">To-From</button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#audio" type="button" role="tab" aria-controls="audio" aria-selected="false">Settings</button>
+                <button class="nav-link" id="background-tab" data-bs-toggle="tab" data-bs-target="#background" type="button" role="tab" aria-controls="audio" aria-selected="false">Background</button>
               </li>
             </ul>
   
@@ -44,7 +45,18 @@
               </div>
               <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
               <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab" tabindex="0">...</div>
-              <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab" tabindex="0">...</div>
+              <div class="tab-pane" id="background" role="tabpanel" aria-labelledby="settings-tab" tabindex="3">
+                <div class="container" id="left-panel">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <button id="beach">Beach</button>
+                    </div>
+                    <div class="col-sm-6">
+                      <button id="forest">Forest</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <!-- Nav tabs -->
@@ -53,8 +65,8 @@
               <canvas id="canvas" width="800" height="600" style="border: 1px solid #000000">
               </canvas>
             </div>
-            <button id="btn-save">Save as PNG</button>
           </div>
+          <button id="btn-save">Save as PNG</button>
         </div>
     </body>
 </html>
