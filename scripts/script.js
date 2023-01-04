@@ -100,6 +100,7 @@ function downloadImage(data, filename) {
   function Refresh() {
     ctx.fillStyle = '#fff';
     ctx.fillRect(0,0, canvas.width, canvas.height);
+ 
   }
   function MouseEvents() {
     canvas.onmousedown = function(e) {
