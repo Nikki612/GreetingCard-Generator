@@ -17,6 +17,7 @@
 .right-side{
     border: 1px solid greenyellow;
     float: left;
+    width: auto;
 }
 
 #webpage {
@@ -33,6 +34,7 @@
 .col-sm-6 {
     height: fit-content;
     width: fit-content;
+    border: 1px solid purple;
   }
 
 
