@@ -11,65 +11,50 @@
         <title>Greeting Card Generator</title>
     </head>
     <body>
-      <section>
-        <div class="container">
-          <!-- Nav tabs -->
-          <ul class="nav nav-pills" id="listElements" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="buddy-tab" data-bs-toggle="tab" data-bs-target="#buddy" type="button" role="tab" aria-controls="buddy" aria-selected="true">Buddy</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="text-tab" data-bs-toggle="tab" data-bs-target="#text" type="button" role="tab" aria-controls="text" aria-selected="false">Text</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#to-from" type="button" role="tab" aria-controls="to-from" aria-selected="false">To-From</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#audio" type="button" role="tab" aria-controls="audio" aria-selected="false">Settings</button>
-            </li>
-          </ul>
-
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <div class="tab-pane active" id="buddy" role="tabpanel" aria-labelledby="buddy-tab" tabindex="0">
-              //TO ADD BUDDY CONTENT
-              <div class="container text-center">
-                <div class="row">
-                  <div class="col">
-                    <img src="https://static.vecteezy.com/system/resources/thumbnails/009/665/304/small/cute-kitty-cat-head-cartoon-element-free-png.png" width=auto height="70%"/>
-                  </div>
-                  <div class="col">
-                    2 of 2
+        <div class="container" id="webpage">
+          <div class="left-side">
+            <ul class="nav nav-pills" id="listElements" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="buddy-tab" data-bs-toggle="tab" data-bs-target="#buddy" type="button" role="tab" aria-controls="buddy" aria-selected="true">Buddy</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="text-tab" data-bs-toggle="tab" data-bs-target="#text" type="button" role="tab" aria-controls="text" aria-selected="false">Text</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#to-from" type="button" role="tab" aria-controls="to-from" aria-selected="false">To-From</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#audio" type="button" role="tab" aria-controls="audio" aria-selected="false">Settings</button>
+              </li>
+            </ul>
+  
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div class="tab-pane active" id="buddy" role="tabpanel" aria-labelledby="buddy-tab" tabindex="0">
+                <div class="container" id="left-panel">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <img src="./assets/cat.png"/>
+                    </div>
+                    <div class="col-sm-6">
+                      <img src="./assets/dog.png"/>
+                    </div>
                   </div>
                 </div>
               </div>
+              <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
+              <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab" tabindex="0">...</div>
+              <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab" tabindex="0">...</div>
             </div>
-            <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
-            <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab" tabindex="0">...</div>
-            <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab" tabindex="0">...</div>
+          </div>
+          <!-- Nav tabs -->
+          <div class="right-side">
+            <div class="canvas">
+              <canvas id="canvas" width="800" height="600" style="border: 1px solid #000000">
+                  <img id="imgCanvas" alt="my Image Canvas">
+              </canvas>
+            </div>
           </div>
         </div>
-      </section>
-                    <div class="container text-center">
-                      <div class="row">
-                        <div class="col">
-                          <section>
-                            
-                          </section>
-                        </div>
-          <div class="col">
-        <div class="canvas">
-            <canvas id="canvas" width="800" height="600" style="border: 1px solid #000000">
-                <img id="imgCanvas" alt="my Image Canvas">
-            </canvas>
-        </div>
-          </div>
-        </div>
-      
-
-      
-      
-     
-      
     </body>
 </html>

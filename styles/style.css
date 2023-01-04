@@ -3,3 +3,36 @@
     justify-content: flex-end;
 }
 
+.left-side{
+    width: auto;
+    float:left;
+    border: 1px solid red;
+}
+
+.tab-content{
+    position:relative;
+    border: 1px pink solid;
+}
+
+.right-side{
+    border: 1px solid greenyellow;
+    float: left;
+}
+
+#webpage {
+    width: auto;
+    height:auto;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+#left-panel {
+    width: auto;
+    display: inline-flex;
+   }
+.col-sm-6 {
+    height: fit-content;
+    width: fit-content;
+  }
+
+
