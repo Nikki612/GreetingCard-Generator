@@ -12,6 +12,25 @@ window.onload = function()
   });
 //--------------------------------------------END OF TABBING SECTION---------------------------------
 
+
+//--------------------------------------------START OF CANVAS TO PNG SAVING SECTION---------------------------------
+// Code to make the save to png button do its thing
+saveBtn=document.getElementById('btn-save');
+saveBtn.addEventListener("click", function(e) {
+  var dataURL = canvas.toDataURL("image/png");
+  downloadImage(dataURL, 'canvas.png');
+});
+
+// Code to actually download the canvas
+function downloadImage(data, filename = 'untitled.png') {
+  var a = document.createElement('a');
+  a.href = data;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+}
+//--------------------------------------------END OF CANVAS TO PNG SAVING SECTION---------------------------------
+
 //--------------------------------------------START OF DRAG ACROSS CANVAS SECTION---------------------------------
   var canvas, ctx;
   var img = new Image();
