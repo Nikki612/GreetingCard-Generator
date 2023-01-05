@@ -61,6 +61,7 @@ function downloadImage(data, filename) {
   var img = new Image();
   var imgBackground = new Image();
   var isDraggable = false;
+  var imagesLoaded = 0;
   
   var currentX = 0;
   var currentY = 0;
@@ -95,8 +96,9 @@ function downloadImage(data, filename) {
     setInterval(function() {
       Refresh();
       DrawImg();
-    }, 1000/30);
+    }, 1);
   }
+
   function Refresh() {
     ctx.fillStyle = '#fff';
     ctx.fillRect(0,0, canvas.width, canvas.height);
@@ -131,7 +133,11 @@ function downloadImage(data, filename) {
     };
   }
   function DrawImg() {
+    
     ctx.drawImage(img, currentX-(img.width/2), currentY-(img.height/2));
+    ctx.globalAlpha = 0.5;
+    ctx.drawImage(imgBackground, 0, 0);
+    
 };
   
 //--------------------------------------------END OF DRAG ON CANVAS SECTION---------------------------------
