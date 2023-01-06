@@ -2,10 +2,17 @@
     display: flex;
     justify-content: flex-end;
     background-color: transparent;
+    position: absolute;
+    background-color: transparent;
+    border: 4px rgb(2, 86, 95) solid;
+    z-index: 0;
 }
 
 #canvas-bg{
     position:absolute;
+    background-color: transparent;
+    border: 4px rgb(85, 0, 169) solid;
+    z-index: -1;
 }
 
 .left-side{
@@ -20,9 +27,11 @@
 }
 
 .right-side{
-    border: 1px solid greenyellow;
+    border: 3px solid greenyellow;
     float: left;
-    width: auto;
+    width: 70%;
+    height: 500pt;
+    position: relative;
 }
 
 #webpage {
@@ -44,6 +53,7 @@
 
 #btn-save{
     display: flex;
+    justify-content: end;
 }
 
 #title{

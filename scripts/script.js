@@ -17,7 +17,8 @@ window.onload = function()
 // Code to make the save to png button do its thing
 saveBtn=document.getElementById('btn-save');
 saveBtn.addEventListener("click", function(e) {
-  var dataURL = canvas.toDataURL("image/png");
+  ctxBg.drawImage(img, currentX, currentY);
+  var dataURL = canvasBg.toDataURL("image/png");
   downloadImage(dataURL, 'canvas.png');
 });
 
@@ -33,6 +34,9 @@ function downloadImage(data, filename) {
 
 //--------------------------------------------START OF BACKGROUND DRAW ON CANVAS SECTION---------------------------------
 
+    var canvasBg=document.getElementById('canvas-bg');
+    var ctxBg=canvasBg.getContext('2d');
+    var imgBackground = new Image();
     const buttons = document.getElementsByTagName("button");
 
     const ButtonPressed = e => { 
@@ -53,24 +57,20 @@ function downloadImage(data, filename) {
       DrawBackground();
     }
     function DrawBackground() {
-      ctx.drawImage(imgBackground,currentX-(imgBackground.width/2),currentY-(imgBackground.height/2));
+      ctxBg.drawImage(imgBackground,0,0);
     };
 //--------------------------------------------END OF BACKGROUND DRAW ON CANVAS SECTION---------------------------------
 //--------------------------------------------START OF DRAG ACROSS CANVAS SECTION---------------------------------
-  var canvas, ctx;
-  var img = new Image();
-  var imgBackground = new Image();
-  var isDraggable = false;
-  var imagesLoaded = 0;
   
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
+  var img = new Image();
+
   var currentX = 0;
   var currentY = 0;
-
-  canvas = document.getElementById("canvas");
-    ctx = canvas.getContext("2d");
   
-    currentX = canvas.width/2;
-    currentY = canvas.height/2;
+  currentX = canvas.width/2;
+  currentY = canvas.height/2;
   
     //See which image was pressed
     const images = document.getElementsByTagName("img");
@@ -79,65 +79,41 @@ function downloadImage(data, filename) {
       console.log(e.target.id);
       img.src=`./assets/${e.target.id}.png`;
       img.onload = function() {
+        ctx.clearRect(0, 0, img.width, img.height);
         ProcessBuddy();
       };
       console.log("Image is pressed");
-      console.log()
     }
 
     for (let image of images) {
       image.addEventListener("click", ImgPressed);
   }
     
-  
+  var key,pos=0;
   function ProcessBuddy() {
-    MouseEvents();
-  
-    setInterval(function() {
-      Refresh();
-      DrawImg();
-    }, 1);
+    
+    DrawImg();
+    document.onkeydown=function(e)
+    {
+      pos=1;
+      key=e.key;
+    }
+    document.onkeyup=function(e){pos=0;}
+    setInterval(function()
+    {
+      if(pos==0)return;
+      if(key=="ArrowLeft")currentX-=0.75;
+      if(key=="ArrowUp")currentY-=0.75;
+      if(key=="ArrowRight")currentX+=0.75;
+      if(key=="ArrowDown")currentY+=0.75;
+      ctx.drawImage(img,currentX,currentY);
+    },1);
   }
 
-  function Refresh() {
-    ctx.fillStyle = '#fff';
-    ctx.fillRect(0,0, canvas.width, canvas.height);
- 
-  }
-  function MouseEvents() {
-    canvas.onmousedown = function(e) {
-  
-      var mouseX = e.pageX - this.offsetLeft;
-      var mouseY = e.pageY - this.offsetTop;
-  
-  
-      if (mouseX >= (currentX - img.width/2) &&
-          mouseX <= (currentX + img.width/2) &&
-          mouseY >= (currentY - img.height/2) &&
-          mouseY <= (currentY + img.height/2)) {
-        isDraggable = true;
-      }
-    };
-    canvas.onmousemove = function(e) {
-  
-      if (isDraggable) {
-        currentX = e.pageX - this.offsetLeft;
-        currentY = e.pageY - this.offsetTop;
-      }
-    };
-    canvas.onmouseup = function(e) {
-      isDraggable = false;
-    };
-    canvas.onmouseout = function(e) {
-      isDraggable = false;
-    };
-  }
   function DrawImg() {
     
     ctx.drawImage(img, currentX-(img.width/2), currentY-(img.height/2));
-    ctx.globalAlpha = 0.5;
-    ctx.drawImage(imgBackground, 0, 0);
-    
+    ctx.globalCompositeOperation ='copy';
 };
   
 //--------------------------------------------END OF DRAG ON CANVAS SECTION---------------------------------
