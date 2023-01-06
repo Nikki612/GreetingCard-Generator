@@ -18,6 +18,7 @@ window.onload = function()
 saveBtn=document.getElementById('btn-save');
 saveBtn.addEventListener("click", function(e) {
   ctxBg.drawImage(img, currentX, currentY);
+  ctxBg.fillText(result,canvas.width/2,canvas.height/4);
   var dataURL = canvasBg.toDataURL("image/png");
   downloadImage(dataURL, 'canvas.png');
 });
@@ -117,6 +118,39 @@ function downloadImage(data, filename) {
 };
   
 //--------------------------------------------END OF DRAG ON CANVAS SECTION---------------------------------
+
+//--------------------------------------------START OF SPEECH RECOGNITION SECTION---------------------------------
+    var SpeechRecognition=SpeechRecognition || webkitSpeechRecognition;
+    let recognition=new SpeechRecognition();
+    recognition.lang="en-US";
+
+    var canvasTxt=document.getElementById("canvas-text");
+    var ctxTxt=canvasTxt.getContext("2d");
+    ctxTxt.font="30px Arial";
+    ctxTxt.textAlign="center";
+
+    var buttonRec=document.getElementById("speak");
+    buttonRec.addEventListener("click",function(){
+        console.log("Speech recognition started");
+        recognition.start();
+    });
+
+    recognition.onend=function(){
+        console.log("Speech recognition ended");
+        recognition.stop();
+    };
+
+    recognition.onresult=function(event){
+
+        console.log(event);
+        let result=event.results[0][0].transcript;
+        var tb=document.getElementById("message");
+        tb.innerHTML=result; 
+        ctxTxt.clearRect(0,0,canvasTxt.height,canvasTxt.width);
+        ctxTxt.fillText(result,canvas.width/2,canvas.height/4);
+    };
+//--------------------------------------------END OF SPEECH RECOGNITION SECTION---------------------------------
+
 
 };
     

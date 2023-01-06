@@ -5,7 +5,7 @@
     position: absolute;
     background-color: transparent;
     border: 4px rgb(2, 86, 95) solid;
-    z-index: 0;
+    z-index: 1;
 }
 
 #canvas-bg{
@@ -13,6 +13,13 @@
     background-color: transparent;
     border: 4px rgb(85, 0, 169) solid;
     z-index: -1;
+}
+
+#canvas-text{
+    position:absolute;
+    background-color: transparent;
+    border: 4px rgb(229, 37, 11) solid;
+    z-index: 0;
 }
 
 .left-side{
