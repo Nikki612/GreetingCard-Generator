@@ -146,10 +146,6 @@ ul {
     width: 140px;
   }
   
-  #buddy-tab:focus {
-    color: #171e29;
-  }
-  
   #buddy-tab:hover {
     border-color: #06f;
     color: #06f;
@@ -176,10 +172,6 @@ ul {
     height: 30px;
     justify-content: center;
     width: 140px;
-  }
-  
-  #text-tab:focus {
-    color: #171e29;
   }
   
   #text-tab:hover {
@@ -210,10 +202,6 @@ ul {
     width: 140px;
   }
   
-  #messages-tab:focus {
-    color: #171e29;
-  }
-  
   #messages-tab:hover {
     border-color: #06f;
     color: #06f;
@@ -240,10 +228,6 @@ ul {
     height: 30px;
     justify-content: center;
     width: 140px;
-  }
-  
-  #background-tab:focus {
-    color: #171e29;
   }
   
   #background-tab:hover {
@@ -286,10 +270,6 @@ ul {
     transform: rotate(-4deg);
   }
   
-  #beach:focus {
-    outline: 0;
-  }
-  
   #beach:after {
     content: '';
     position: absolute;
@@ -317,9 +297,6 @@ ul {
     transform: rotate(+4deg);
   }
   
-  #forest:focus {
-    outline: 0;
-  }
   
   #forest:after {
     content: '';
