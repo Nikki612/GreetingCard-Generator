@@ -25,16 +25,16 @@
 .left-side{
     width: auto;
     float:left;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .tab-content{
     position:relative;
-    border: 1px pink solid;
+    /* border: 1px pink solid; */
 }
 
 .right-side{
-    border: 3px solid greenyellow;
+    /* border: 3px solid greenyellow; */
     float: left;
     width: 70%;
     height: 500pt;
@@ -42,25 +42,312 @@
 }
 
 #left-panel {
+    padding-top: 50px;
     width: auto;
     display: inline-flex;
    }
    
 .col-sm-6 {
+    padding: 20px;
     height: fit-content;
     width: fit-content;
-    border: 1px solid purple;
+    /* border: 1px solid purple; */
+  }
+
+  .col-sm-6:hover {
+    box-shadow: #7effeebe 3px 7px 7px -4px;
+    transform: translate3d(0, 2px, 0);
   }
 
 #btn-save{
-    display: flex;
     justify-content: end;
 }
 
 #title{
+    padding-top: 10px;
+    padding-bottom: 10px;
     text-align:center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: lighter;
+color:rgb(255, 162, 56)
 }
 
 
+  /* ////////////////////////////// */
+  /* List */
+ul {
+    counter-reset: index;  
+    padding: 0;
+    max-width: 300px;
+  }
+  
+  /* List element */
+  li {
+    counter-increment: index; 
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    box-sizing: border-box;
+  }
+  
+  
+  /* Element counter */
+  li::before {
+    content: counters(index, ".", decimal-leading-zero);
+    font-size: 30px;
+    text-align: right;
+    font-weight: bold;
+    padding-right: 12px;
+    align-self: flex-start;
+  }
+  
+  /* Element separation */
+  li + li {
+    border-top: 1px solid rgba(224, 21, 21, 0.2);
+  }
+
+
+#listElements {
+    align-self: center;
+    background-color: #fff;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(85, 0, 169);
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    line-height: 20px;
+    padding: 10px;
+    border-bottom-left-radius: 20px 240px;
+    border-bottom-right-radius: 240px 20px;
+    border-top-left-radius: 240px 20px;
+    border-top-right-radius: 20px 240px;
+    touch-action: manipulation;
+  }
+  
+  #listElements:hover {
+    box-shadow: rgb(208, 87, 255) 3px 7px 7px -4px;
+    transform: translate3d(0, 2px, 0);
+  }
+  /*   Buttons */
+
+  
+  #buddy-tab {
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #000;
+    color: #000;
+    display: inline-flex;
+    fill: #000;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 30px;
+    justify-content: center;
+    width: 140px;
+  }
+  
+  #buddy-tab:focus {
+    color: #171e29;
+  }
+  
+  #buddy-tab:hover {
+    border-color: #06f;
+    color: #06f;
+    fill: #06f;
+  }
+  
+  #buddy-tab:active {
+    border-color: #06f;
+    color: #06f;
+    fill: #06f;
+  }
+
+
+  #text-tab {
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #000;
+    color: #000;
+    display: inline-flex;
+    fill: #000;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 30px;
+    justify-content: center;
+    width: 140px;
+  }
+  
+  #text-tab:focus {
+    color: #171e29;
+  }
+  
+  #text-tab:hover {
+    border-color: #06f;
+    color: #06f;
+    fill: #06f;
+  }
+  
+  #text-tab:active {
+    border-color: #06f;
+    color: #06f;
+    fill: #06f;
+  }
+
+
+  #messages-tab {
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #000;
+    color: #000;
+    display: inline-flex;
+    fill: #000;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 30px;
+    justify-content: center;
+    width: 140px;
+  }
+  
+  #messages-tab:focus {
+    color: #171e29;
+  }
+  
+  #messages-tab:hover {
+    border-color: #06f;
+    color: #06f;
+    fill: #06f;
+  }
+  
+  #messages-tab:active {
+    border-color: #06f;
+    color: #06f;
+    fill: #06f;
+  }
+
+
+  #background-tab {
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #000;
+    color: #000;
+    display: inline-flex;
+    fill: #000;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 30px;
+    justify-content: center;
+    width: 140px;
+  }
+  
+  #background-tab:focus {
+    color: #171e29;
+  }
+  
+  #background-tab:hover {
+    border-color: #06f;
+    color: #06f;
+    fill: #06f;
+  }
+  
+  #background-tab:active {
+    border-color: #06f;
+    color: #06f;
+    fill: #06f;
+  }
+
+  #text {
+    padding-top: 50px;
+  }
+
+  #buddy {
+    padding-top: 50px;
+  }
+  
+#btn-save {
+    padding: 10px 20px;
+    color: rgb(0, 0, 0);
+    background: rgba(33, 122, 255, 0.247);
+    position: relative;
+    border-radius: 10px;
+  }
+  
+  #beach {
+    background-color: #ff9114;
+    border: 0 solid #E5E7EB;
+    display: flex;
+    font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-weight: 700;
+    line-height: 20px;
+    padding: 20px 20px;
+    text-decoration :#000000 solid;
+    transform: rotate(-4deg);
+  }
+  
+  #beach:focus {
+    outline: 0;
+  }
+  
+  #beach:after {
+    content: '';
+    position: absolute;
+    border: 1px solid #000000;
+    bottom: 4px;
+    left: 4px;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+  }
+  
+  #beach:hover:after {
+    bottom: 2px;
+    left: 2px;
+  }
+
+  #forest {
+    background-color: #e91cfc;
+    border: 0 solid #E5E7EB;
+    display: flex;
+    font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-weight: 700;
+    line-height: 20px;
+    padding: 20px 20px;
+    text-decoration :#000000 solid;
+    transform: rotate(+4deg);
+  }
+  
+  #forest:focus {
+    outline: 0;
+  }
+  
+  #forest:after {
+    content: '';
+    position: absolute;
+    border: 1px solid #000000;
+    bottom: 4px;
+    left: 4px;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+  }
+  
+  #forest:hover:after {
+    bottom: 2px;
+    left: 2px;
+  }
+
+
+  #speak {
+    background-color: #000;
+    border: 1px solid #000;
+    border-radius: 4px;
+    box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+    color: #fff;
+    font-family: Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0 5px 10px 0;
+    padding: 12px 40px;
+    text-align: center;
+  }
