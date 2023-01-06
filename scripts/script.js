@@ -18,9 +18,12 @@ window.onload = function()
 saveBtn=document.getElementById('btn-save');
 saveBtn.addEventListener("click", function(e) {
   ctxBg.drawImage(img, currentX, currentY);
-  ctxBg.fillText(result,canvas.width/2,canvas.height/4);
+  ctxBg.font="30px Arial";
+  ctxBg.textAlign="center";
+  ctxBg.fillText(tb.innerHTML,canvas.width/2,canvas.height/4);
   var dataURL = canvasBg.toDataURL("image/png");
   downloadImage(dataURL, 'canvas.png');
+  RefreshAfterDownload();
 });
 
 // Code to actually download the canvas
@@ -30,6 +33,11 @@ function downloadImage(data, filename) {
   a.download = filename;
   document.body.appendChild(a);
   a.click();
+}
+
+function RefreshAfterDownload() {
+  ctxBg.clearRect(0, 0,canvas.width,canvas.height);
+  ctxBg.drawImage(imgBackground,0,0);
 }
 //--------------------------------------------END OF CANVAS TO PNG SAVING SECTION---------------------------------
 
@@ -41,12 +49,18 @@ function downloadImage(data, filename) {
     const buttons = document.getElementsByTagName("button");
 
     const ButtonPressed = e => { 
-      console.log(e.target.id);
-      imgBackground.src=`./assets/${e.target.id}.png`;
-      imgBackground.onload = function() {
-        ProcessBackground();
+      try{
+        console.log(e.target.id);
+        imgBackground.src=`./assets/${e.target.id}.png`;
+        imgBackground.onload = function() {
+          ProcessBackground();
+        };
+        console.log("Button is pressed");
+      }
+      catch (e) {
+        console.log("Button without background is pressed");
       };
-      console.log("Button is pressed");
+      
 
     }
 
@@ -122,6 +136,8 @@ function downloadImage(data, filename) {
 //--------------------------------------------START OF SPEECH RECOGNITION SECTION---------------------------------
     var SpeechRecognition=SpeechRecognition || webkitSpeechRecognition;
     let recognition=new SpeechRecognition();
+    var tb=document.getElementById("message");
+
     recognition.lang="en-US";
 
     var canvasTxt=document.getElementById("canvas-text");
@@ -144,7 +160,6 @@ function downloadImage(data, filename) {
 
         console.log(event);
         let result=event.results[0][0].transcript;
-        var tb=document.getElementById("message");
         tb.innerHTML=result; 
         ctxTxt.clearRect(0,0,canvasTxt.height,canvasTxt.width);
         ctxTxt.fillText(result,canvas.width/2,canvas.height/4);
