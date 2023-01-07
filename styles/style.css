@@ -22,6 +22,12 @@
     z-index: 0;
 }
 
+#canvas-tofrom{
+  position:absolute;
+  background-color: transparent;
+  z-index: 2;
+}
+
 .left-side{
     width: 300px;
     float:left;
@@ -79,7 +85,7 @@ ul {
   }
   
   /* List element */
-  li {
+  .nav-item {
     counter-increment: index; 
     display: flex;
     align-items: center;
@@ -88,7 +94,7 @@ ul {
   
   
   /* Element counter */
-  li::before {
+  .nav-item::before {
     content: counters(index, ".", decimal-leading-zero);
     font-size: 30px;
     text-align: right;
@@ -373,3 +379,5 @@ ul {
     padding: 12px 40px;
     text-align: center;
   }
+
+  

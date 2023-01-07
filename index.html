@@ -58,7 +58,19 @@
 
                 <h1 id="message"></h1>
               </div>
-              <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab" tabindex="0">...</div>
+              <div class="tab-pane" id="to-from" role="tabpanel" aria-labelledby="to-from-tab" tabindex="2">
+                <ul id="destination-sender">
+                  <li>
+                    <label for="name">To:</label>
+                    <input type="text" id="to" name="to" />
+                  </li>
+                  <li>
+                    <label for="name">From:</label>
+                    <input type="text" id="from" name="from" />
+                  </li>
+                  <button id="to-from-btn">Add</button>
+                </ul>
+              </div>
               <div class="tab-pane" id="background" role="tabpanel" aria-labelledby="background-tab" tabindex="3">
                 <div class="container" id="left-panel">
                   <div class="row">
@@ -87,6 +99,8 @@
               <canvas id="canvas-bg" width="800" height="600">
               </canvas>
               <canvas id="canvas-text" width="800" height="600">
+              </canvas>
+              <canvas id="canvas-tofrom" width="800" height="600">
               </canvas>
             </div>
           </div>

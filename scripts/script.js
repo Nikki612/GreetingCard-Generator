@@ -19,8 +19,9 @@ saveBtn=document.getElementById('btn-save');
 saveBtn.addEventListener("click", function(e) {
   ctxBg.drawImage(img, currentX, currentY);
   ctxBg.font="30px Arial";
-  ctxBg.textAlign="center";
   ctxBg.fillText(tb.innerHTML,canvas.width/2,canvas.height/4);
+  ctxBg.fillText("To: "+toName,3*canvas.width/4,3*canvas.height/4);
+  ctxBg.fillText("From: "+fromName,3*canvas.width/4,0.85*canvas.height);
   var dataURL = canvasBg.toDataURL("image/png");
   downloadImage(dataURL, 'canvas.png');
   RefreshAfterDownload();
@@ -37,7 +38,7 @@ function downloadImage(data, filename) {
 
 function RefreshAfterDownload() {
   ctxBg.clearRect(0, 0,canvas.width,canvas.height);
-  ctxBg.drawImage(imgBackground,0,0);
+  DrawBackground();
 }
 //--------------------------------------------END OF CANVAS TO PNG SAVING SECTION---------------------------------
 
@@ -132,6 +133,22 @@ function RefreshAfterDownload() {
 };
   
 //--------------------------------------------END OF DRAG ON CANVAS SECTION---------------------------------
+//--------------------------------------------START OF TO-FROM SECTION---------------------------------
+var canvasToFr=document.getElementById("canvas-tofrom"); 
+var ctxToFr=canvasToFr.getContext("2d"); 
+var btnToFrom=document.getElementById("to-from-btn");
+var toName;
+var fromName;
+ctxToFr.font="21px Arial";
+ctxToFr.textAlign="left";
+btnToFrom.addEventListener("click",function(e){
+    ctxToFr.clearRect(0,0,canvasToFr.width,canvasToFr.height);
+    toName=document.getElementById("to").value;
+    fromName=document.getElementById("from").value;
+    ctxToFr.fillText("To: "+toName,3*canvas.width/4,3*canvas.height/4);
+    ctxToFr.fillText("From: "+fromName,3*canvas.width/4,0.85*canvas.height);
+  });
+//--------------------------------------------END OF TO-FROM SECTION---------------------------------
 
 //--------------------------------------------START OF SPEECH RECOGNITION SECTION---------------------------------
     var SpeechRecognition=SpeechRecognition || webkitSpeechRecognition;
