@@ -79,7 +79,7 @@
 }
 
   /* List */
-ul {
+  .listElements {
     counter-reset: index;
     max-width: 300px;
   }
@@ -381,3 +381,28 @@ ul {
   }
 
   
+/* To-from */
+
+#destination-sender {
+  padding-top: 20px;
+  font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-weight: 700;
+}
+
+
+/* To-From Add Button */
+
+#to-from-btn {
+  background-color: #000;
+  border: 1px solid #000;
+  border-radius: 4px;
+  box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+  color: #fff;
+  font-family: Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0 5px 10px 0;
+  padding: 12px 40px;
+  text-align: center;
+}
