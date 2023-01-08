@@ -14,7 +14,7 @@ window.onload = function()
 
 
 //--------------------------------------------START OF CANVAS TO PNG SAVING SECTION---------------------------------
-// Code to make the save to png button do its thing
+// Code to merge all canvases into one and saving it as a PNG file
 saveBtn=document.getElementById('btn-save');
 saveBtn.addEventListener("click", function(e) {
   ctxBg.drawImage(img, currentX, currentY);
@@ -36,6 +36,7 @@ function downloadImage(data, filename) {
   a.click();
 }
 
+//Function to clear the background canvas of all the top layers and redraw the canvasBg as it was
 function RefreshAfterDownload() {
   ctxBg.clearRect(0, 0,canvas.width,canvas.height);
   DrawBackground();
@@ -76,7 +77,7 @@ function RefreshAfterDownload() {
       ctxBg.drawImage(imgBackground,0,0);
     };
 //--------------------------------------------END OF BACKGROUND DRAW ON CANVAS SECTION---------------------------------
-//--------------------------------------------START OF DRAG ACROSS CANVAS SECTION---------------------------------
+//--------------------------------------------START OF DRAG ACROSS CANVAS SECTION WITH KEYBOARD---------------------------------
   
   var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
@@ -135,7 +136,7 @@ function RefreshAfterDownload() {
     ctx.globalCompositeOperation ='copy';
 };
   
-//--------------------------------------------END OF DRAG ON CANVAS SECTION---------------------------------
+//--------------------------------------------END OF DRAG ON CANVAS SECTION WITH KEYBOARD---------------------------------
 //--------------------------------------------START OF TO-FROM SECTION---------------------------------
 var canvasToFr=document.getElementById("canvas-tofrom"); 
 var ctxToFr=canvasToFr.getContext("2d"); 
@@ -153,7 +154,7 @@ btnToFrom.addEventListener("click",function(e){
   });
 //--------------------------------------------END OF TO-FROM SECTION---------------------------------
 
-//--------------------------------------------START OF SPEECH RECOGNITION SECTION---------------------------------
+//--------------------------------------------START OF SPEECH RECOGNITION & TEXT CANVAS SECTION---------------------------------
     var SpeechRecognition=SpeechRecognition || webkitSpeechRecognition;
     let recognition=new SpeechRecognition();
     var tb=document.getElementById("message");
@@ -184,7 +185,7 @@ btnToFrom.addEventListener("click",function(e){
         ctxTxt.clearRect(0,0,canvasTxt.height,canvasTxt.width);
         ctxTxt.fillText(result,canvas.width/2,canvas.height/4);
     };
-//--------------------------------------------END OF SPEECH RECOGNITION SECTION---------------------------------
+//--------------------------------------------END OF SPEECH RECOGNITION & TEXT CANVAS SECTION---------------------------------
 
 
 };
