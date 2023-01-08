@@ -29,7 +29,7 @@ saveBtn.addEventListener("click", function(e) {
 
 // Code to actually download the canvas
 function downloadImage(data, filename) {
-  var a = document.createElement('a');
+  var a = document.createElement("a");
   a.href = data;
   a.download = filename;
   document.body.appendChild(a);
@@ -94,6 +94,9 @@ function RefreshAfterDownload() {
     const ImgPressed = e => { 
       console.log(e.target.id);
       img.src=`./assets/${e.target.id}.png`;
+      var sound=new Audio();
+      sound.src=`./assets/${e.target.id}.wav`;
+      sound.play();
       img.onload = function() {
         ctx.clearRect(0, 0, img.width, img.height);
         ProcessBuddy();
